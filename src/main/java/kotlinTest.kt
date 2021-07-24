@@ -11,7 +11,14 @@ fun main(){
     try{
         tx.begin()
         val user: UserTest = em.find(UserTest::class.java, 1)
-        println("user.name : ${user.name}")
+//        println("user.name : ${user.name}")
+
+        val hostApplyHistory: HostGosiwonApply = em.find(HostGosiwonApply::class.java, 1)
+        if(hostApplyHistory.user != null){
+            println("hostApplyHistory = ${hostApplyHistory.isApproved}")
+        }
+
+
         tx.commit()
     } catch (e: Exception){
         println("e.message = ${e.message}")
